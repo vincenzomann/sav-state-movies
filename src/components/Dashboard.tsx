@@ -52,24 +52,14 @@ const Dashboard: React.FC<Props> = () => {
 	}, []);
 
 	return (
-		<div>
-			<div id='header'>
-				<h2>Sav State Movies</h2>
-				<div id='searchBorder'>
-					<button id='searchBtn'><i className='bi bi-search'></i></button>
-					<input id='searchInput' type='text' placeholder='search' />
-				</div>
-			</div>
-			<hr />
-			<div id="genres">
-				{genres.length ?
-					genres.map((genre) => (
-						<Genre key={genre} genre={genre} movies={movies} />
-					))
-					:
-					<div>Loading...</div>
-				}
-			</div>
+		<div id="genres">
+			{genres.length ?
+				genres.map((genre) => (
+					<Genre key={genre} genre={genre} movies={movies} />
+				))
+				:
+				<div>Loading...</div>
+			}
 		</div>
 	);
 };
