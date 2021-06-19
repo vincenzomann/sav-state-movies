@@ -32,6 +32,27 @@ const Dashboard: React.FC<Props> = () => {
 		});
 	}, []);
 
+	const displayStars = (movie: Movie) => {
+		const starRating = Math.round(movie.imdb_rating) / 2;
+		const fullStars = Math.floor(starRating);
+		const halfStar = starRating % 1 === 0.5;
+		// Create array that will have the classNames for which star icon to display: fill, half, empty
+		let starIcons = [];
+		// Fill the start of the array with how many full stars the movie has
+		for (let i = 0; i < fullStars; i++) {
+			starIcons.push('bi bi-star-fill');
+		}
+		// Add a half star icon if required
+		halfStar && starIcons.push('bi bi-star-half');
+		// Fill the remaining indexes with empty star icons if the array length is less than 5
+		while (starIcons.length < 5) {
+			starIcons.push('bi bi-star');
+		}
+		return starIcons.map((className) => (
+			<i className={className} />
+		));
+	};
+
 	return (
 		<div className="details">
 			{
@@ -44,14 +65,13 @@ const Dashboard: React.FC<Props> = () => {
 						</div>
 						<div className="col-12 col-md-8">
 							<div className="card movieDetails">
-								<div className="row">
+								<div className="row" id='topInfo'>
 									<div className="col">
 										<p>{movie.title} ({movie.imdb_rating})</p>
-										<p>{movie.released_on} | {movie.length} | {movie.director}</p>
-										{/* <p>{movie.released_on} | {movie.length} | {typeof (movie.director) === 'string' ? movie.director : movie.director.join(', ')}</p> */}
+										<p>{movie.released_on.substr(0, 4)} | {movie.length} | {typeof (movie.director) === 'string' ? movie.director : movie.director.join(', ')}</p>
 										<p>Cast: {movie.cast.join(', ')}</p>
 									</div>
-									<div className="col">****</div>
+									<div className="col" id='stars'>{displayStars(movie)}</div>
 								</div>
 								<div className="row">
 									<p>Description</p>

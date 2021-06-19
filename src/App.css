@@ -16,7 +16,7 @@ html, body {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin: 0 5.5rem 0 2rem;
+	margin: 1rem 4rem;
 }
 
 #searchBorder {
@@ -35,13 +35,11 @@ html, body {
 }
 
 hr {
-	margin: 0 auto;
-	width: 90%;
-	margin-left: 2rem;
+	margin: 0 4rem;
 }
 
 #genres {
-	padding: 2rem;
+	padding: 1rem 4rem;
 	height: calc(100vh - 61px);
 	overflow-y: scroll;
 }
@@ -71,7 +69,7 @@ hr {
 
 .details {
 	height: calc(100vh - 61px);
-	overflow-y: scroll;
+	overflow-y: auto;
 	padding: 2rem;
 }
 .poster {
@@ -83,4 +81,14 @@ hr {
 	/* width: fit-content; */
 	width: 100%;
 	padding: 1rem;
+}
+
+#topInfo {
+	padding: 1rem;
+}
+
+#stars {
+	text-align: right;
+	font-size: xx-large;
+	padding: 2rem;
 }
