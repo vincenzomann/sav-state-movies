@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { RouteComponentProps } from '@reach/router';
 import Genre from './Genre';
+import Header from './Header';
 
 interface Props extends RouteComponentProps {
 
@@ -52,15 +53,18 @@ const Dashboard: React.FC<Props> = () => {
 	}, []);
 
 	return (
-		<div id="genres">
-			{genres.length ?
-				genres.map((genre) => (
-					<Genre key={genre} genre={genre} movies={movies} />
-				))
-				:
-				<div>Loading...</div>
-			}
-		</div>
+		<>
+			<Header />
+			<div id="genres">
+				{genres.length ?
+					genres.map((genre) => (
+						<Genre key={genre} genre={genre} movies={movies} />
+					))
+					:
+					<div>Loading...</div>
+				}
+			</div>
+		</>
 	);
 };
 
