@@ -18,7 +18,7 @@ html, body {
 	justify-content: space-between;
 	align-items: center;
 	box-sizing: border-box;
-	padding: 3rem 4rem;
+	padding: 0rem 4rem;
 }
 
 #home:hover {
@@ -30,7 +30,7 @@ html, body {
 	border: 1px solid black;
 	border-radius: 15px;
 }
-#searchBtn {
+.searchBtn {
 	padding: 0 0.2rem;
 	border: none;
 }
@@ -44,7 +44,7 @@ hr {
 	margin: 0 4rem;
 }
 
-#genres {
+#search {
 	padding: 1rem 4rem;
 	height: calc(100vh - 61px);
 	overflow-y: scroll;

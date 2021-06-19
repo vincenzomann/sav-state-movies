@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { RouteComponentProps } from '@reach/router';
 import Genre from './Genre';
-import Header from './Header';
-
-interface Props extends RouteComponentProps {
-
-}
-
+import MovieCard from './MovieCard';
 export interface Movie {
 	backdrop: string,
 	cast: string[],
@@ -22,14 +17,17 @@ export interface Movie {
 	slug: string,
 	title: string;
 }
+interface Props extends RouteComponentProps {
+	searchResults: Movie[];
+}
 
-const Dashboard: React.FC<Props> = () => {
+const Dashboard: React.FC<Props> = ({ searchResults }) => {
 
 	const [movies, setMovies] = useState<Movie[]>([]);
 	const [genres, setGenres] = useState<string[]>([]);
 
 	useEffect(() => {
-		// fetch('https://sav-state/movies', {
+		// fetch('https://sav-state/movies', { // Use if real API
 		fetch('movies.json', {
 			headers: {
 				Authorization: 'Bearer savstate2021'
@@ -54,15 +52,26 @@ const Dashboard: React.FC<Props> = () => {
 
 	return (
 		<>
-			<Header />
-			<div id="genres">
-				{genres.length ?
-					genres.map((genre) => (
-						<Genre key={genre} genre={genre} movies={movies} />
-					))
-					:
-					<div>Loading...</div>
-				}
+			<div id='search'>
+				{searchResults.length ? (
+					<div className='row search'>
+						<h3>Search Results</h3>
+						{searchResults.map((movie) => {
+							console.log(movie);
+							return <MovieCard movie={movie} />;
+						})}
+					</div>
+				) : (
+					<>
+						{genres.length ?
+							genres.map((genre) => (
+								<Genre key={genre} genre={genre} movies={movies} />
+							))
+							:
+							<div>Loading...</div>
+						}
+					</>
+				)}
 			</div>
 		</>
 	);

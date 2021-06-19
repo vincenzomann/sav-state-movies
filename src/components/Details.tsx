@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { RouteComponentProps } from '@reach/router';
 import { Movie } from './Dashboard';
-import Header from './Header';
 
 interface Props extends RouteComponentProps {
 
@@ -56,27 +55,26 @@ const Dashboard: React.FC<Props> = () => {
 
 	return (
 		<>
-			<Header />
-			<div className="details">
+			<div className='details'>
 				{
 					movie ? (
 						<div className='row justify-content-around'>
-							<div className="col-12 col-md-4">
-								<div className="card poster">
-									<img src={movie.poster} alt="poster" />
+							<div className='col-12 col-md-4'>
+								<div className='card poster'>
+									<img src={movie.poster} alt='poster' />
 								</div>
 							</div>
-							<div className="col-12 col-md-8">
-								<div className="card movieDetails">
-									<div className="row" id='topInfo'>
-										<div className="col">
+							<div className='col-12 col-md-8'>
+								<div className='card movieDetails'>
+									<div className='row' id='topInfo'>
+										<div className='col'>
 											<p>{movie.title} ({movie.imdb_rating})</p>
 											<p>{movie.released_on.substr(0, 4)} | {movie.length} | {typeof (movie.director) === 'string' ? movie.director : movie.director.join(', ')}</p>
 											<p>Cast: {movie.cast.join(', ')}</p>
 										</div>
-										<div className="col" id='stars'>{displayStars(movie)}</div>
+										<div className='col' id='stars'>{displayStars(movie)}</div>
 									</div>
-									<div className="row">
+									<div className='row'>
 										<p>Description</p>
 										<p>{movie.overview}</p>
 									</div>
