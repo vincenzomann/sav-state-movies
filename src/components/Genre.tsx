@@ -17,7 +17,7 @@ const Genre: React.FC<Props> = ({ genre, movies }) => {
 	return (
 		<div className='row genreRow'>
 			<h4>{genre}</h4>
-			<div className='row'>
+			<div className='row' style={{ padding: '0', width: '100vw' }}>
 				{genreMovies.map((movie) => (
 					<MovieCard movie={movie} />
 				))}
