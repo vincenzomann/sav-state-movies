@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Movie } from './Dashboard';
-import { navigate } from '@reach/router';
 import MovieCard from './MovieCard';
 
 interface Props {
