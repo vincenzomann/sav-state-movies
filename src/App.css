@@ -13,7 +13,7 @@ html, body {
 }
 
 #header {
-	height: 60px;
+	height: 100px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -30,9 +30,13 @@ html, body {
 	border: 1px solid black;
 	border-radius: 15px;
 }
+.formRow {
+	padding: 0 0.75rem;
+}
 .searchBtn {
 	padding: 0 0.2rem;
 	border: none;
+	border-radius: 15px;
 }
 #searchInput {
 	padding: 0 0.2rem;
@@ -79,7 +83,6 @@ hr {
 	padding: 2rem;
 }
 .poster {
-	height: 500px;
 	width: 100%;
 }
 

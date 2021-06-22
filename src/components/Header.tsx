@@ -38,20 +38,22 @@ const Header: React.FC<Props> = (props: Props) => {
 
 	return (
 		<>
-			<div id='header'>
-				<h2 id='home' onClick={() => navigate('/')}>Sav State Movies</h2>
-				<div id='searchBorder'>
-					<form onSubmit={handleSubmit}>
-						<button type='submit' className='searchBtn' >
-							<i className='bi bi-search' />
-						</button>
-						<input id='searchInput' type='text' placeholder='search' value={searchTerm} onChange={handleChange} />
-						<button type='button' value='clear' className='searchBtn' onClick={() => {
-							setSearchTerm('');
-							props.setSearchResults([]);
-						}} >
-							<i className='bi bi-x' />
-						</button>
+			<div className='row' id='header'>
+				<h2 className='col' id='home' onClick={() => navigate('/')}>Sav State Movies</h2>
+				<div className='col' id='searchBorder'>
+					<form onSubmit={handleSubmit} style={{ justifyContent: 'center' }}>
+						<div className="row formRow">
+							<button className='col searchBtn' type='submit'>
+								<i className='bi bi-search' />
+							</button>
+							<input className='col-8' id='searchInput' type='text' placeholder='search' value={searchTerm} onChange={handleChange} />
+							<button className='col searchBtn' type='button' value='clear' onClick={() => {
+								setSearchTerm('');
+								props.setSearchResults([]);
+							}} >
+								<i className='bi bi-x' />
+							</button>
+						</div>
 					</form>
 				</div>
 			</div>
